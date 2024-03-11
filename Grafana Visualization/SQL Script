@@ -1,0 +1,12 @@
+SELECT  timestamp,
+city AS City,
+aqi AS Air_Quality,
+co AS CO,
+no2 AS NO2,
+so2 AS SO2,
+pm10 AS PM10
+FROM "air-pollution-database"."air_pollution"
+WHERE CAST(timestamp as varchar) BETWEEN '2023-10-01 00:00:50' and '2023-10-10 00:00:50'
+AND city IN (${city})
+ORDER BY timestamp
+limit 1000
